@@ -17,7 +17,7 @@ func gc_Parse(rd io.Reader) ([]*Suite, error) {
 
 	var suites = make([]*Suite, 0)
 	var suiteName string
-	var currentSuite *Suite
+	var curSuite *Suite
 
 	var testName string
 	var message []string
@@ -45,18 +45,18 @@ func gc_Parse(rd io.Reader) ([]*Suite, error) {
 			if (tokens[2] != suiteName) || (tokens[3] != testName) {
 				return nil, fmt.Errorf("%d: suite/name mismatch", lnum)
 			}
-			test := &Test{Name: testName}
-			test.Message = strings.Join(message, "\n")
-			test.Time = tokens[4]
-			test.Failed = (tokens[1] == "FAIL") || (tokens[1] == "PANIC")
-			test.Passed = (tokens[1] == "PASS")
-			test.Skipped = (tokens[1] == "SKIP")
+			curTest := &Test{Name: testName}
+			curTest.Message = strings.Join(message, "\n")
+			curTest.Time = tokens[4]
+			curTest.Failed = (tokens[1] == "FAIL") || (tokens[1] == "PANIC")
+			curTest.Passed = (tokens[1] == "PASS")
+			curTest.Skipped = (tokens[1] == "SKIP")
 
-			if currentSuite == nil || currentSuite.Name != suiteName {
-				currentSuite = &Suite{Name: suiteName}
-				suites = append(suites, currentSuite)
+			if curSuite == nil || curSuite.Name != suiteName {
+				curSuite = &Suite{Name: suiteName}
+				suites = append(suites, curSuite)
 			}
-			currentSuite.Tests = append(currentSuite.Tests, test)
+			curSuite.Tests = append(curSuite.Tests, curTest)
 
 			testName = ""
 			suiteName = ""
@@ -68,12 +68,12 @@ func gc_Parse(rd io.Reader) ([]*Suite, error) {
 		// last "suite" is test summary
 		tokens = find_suite(line)
 		if tokens != nil {
-			if currentSuite == nil {
-				currentSuite = &Suite{Name: tokens[2], Status: tokens[1], Time: tokens[3]}
-				suites = append(suites, currentSuite)
+			if curSuite == nil {
+				curSuite = &Suite{Name: tokens[2], Status: tokens[1], Time: tokens[3]}
+				suites = append(suites, curSuite)
 			} else {
-				currentSuite.Status = tokens[1]
-				currentSuite.Time = tokens[3]
+				curSuite.Status = tokens[1]
+				curSuite.Time = tokens[3]
 			}
 
 			testName = ""
