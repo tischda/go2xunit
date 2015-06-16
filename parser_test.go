@@ -6,7 +6,7 @@ import (
 )
 
 // Ensure the parser can parse strings into Statement ASTs.
-func TestParser_ParseStatement(t *testing.T) {
+func Test_Parser(t *testing.T) {
 
 	var tests = []struct {
 		file string
@@ -26,7 +26,10 @@ func TestParser_ParseStatement(t *testing.T) {
 	for i, tt := range tests {
 		rd := getInputData(tt.file)
 
-		test, _ := NewParser(rd).Parse()
+		test, err := NewParser(rd).Parse()
+		if err != nil {
+			t.Error(err)
+		}
 		if !reflect.DeepEqual(tt.test, test) {
 			t.Errorf("%d. %q\nexp=%#v\ngot=%#v\n\n", i, tt.file, tt.test, test)
 		}

@@ -56,7 +56,7 @@ func (p *Parser) Parse() (*Test, error) {
 	}
 
 	// ignore colon
-	p.scanIgnoreWhitespace()
+	p.scan()
 
 	// Read test name again
 	if tok, lit := p.scanIgnoreWhitespace(); tok != IDENT {
