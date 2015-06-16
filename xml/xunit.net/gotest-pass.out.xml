@@ -20,21 +20,21 @@
           type="test"
           method="TestAdd"
           result="Pass"
-          time="0.00">
+          time="0.01">
         </test>
 
         <test name="TestSub"
           type="test"
           method="TestSub"
           result="Pass"
-          time="0.00">
+          time="0.02">
         </test>
 
         <test name="TestMul"
           type="test"
           method="TestMul"
           result="Pass"
-          time="0.00">
+          time="0.03">
         </test>
 
     </class>

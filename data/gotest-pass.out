@@ -1,8 +1,8 @@
 === RUN TestAdd
---- PASS: TestAdd (0.00 seconds)
+--- PASS: TestAdd (0.01 seconds)
 === RUN TestSub
---- PASS: TestSub (0.00 seconds)
+--- PASS: TestSub (0.02 seconds)
 === RUN TestMul
---- PASS: TestMul (0.00 seconds)
+--- PASS: TestMul (0.03 seconds)
 PASS
 ok  	go2xunit/demo	0.006s

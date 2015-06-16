@@ -1,11 +1,12 @@
 package mmath
 
 import (
-	. "launchpad.net/gocheck"
+	. "gopkg.in/check.v1"
 	"testing"
 )
 
 type MySuite struct{}
+
 var _ = Suite(&MySuite{})
 
 // Hook up gocheck into the "go test" runner.

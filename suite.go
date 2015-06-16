@@ -1,5 +1,13 @@
 package main
 
+// Test
+type Test struct {
+	Name, Time, Message string
+	Failed              bool
+	Skipped             bool
+	Passed              bool
+}
+
 // Test suite
 type Suite struct {
 	Name   string

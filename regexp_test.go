@@ -34,6 +34,6 @@ func Test_GcSuiteReSkip(t *testing.T) {
 
 func checkExpected(t *testing.T, expected string, actual string) {
 	if actual != expected {
-		t.Fatalf("Expected %s but was %s\n", expected, actual)
+		t.Fatalf("Expected %q but was %q\n", expected, actual)
 	}
 }

@@ -5,13 +5,6 @@ import (
 	"strconv"
 )
 
-type Test struct {
-	Name, Time, Message string
-	Failed              bool
-	Skipped             bool
-	Passed              bool
-}
-
 type TestResults struct {
 	Suites   []*Suite
 	Assembly string
