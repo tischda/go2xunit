@@ -1,5 +1,7 @@
 package mmath
 
+import "log"
+
 func Add(x, y int) int {
 	return x + y
 }
@@ -14,4 +16,8 @@ func Mul(x, y int) int {
 
 func Div(x, y int) int {
 	return x / y
+}
+
+func Panic() {
+    log.Panic()
 }
