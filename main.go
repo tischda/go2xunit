@@ -8,7 +8,9 @@ import (
 	"os"
 )
 
-const version = "1.2.1"
+// http://technosophos.com/2014/06/11/compile-time-string-in-go.html
+// go build -ldflags "-x main.version $(git describe --tags)"
+var version string
 
 var failOnRace = false
 
