@@ -234,7 +234,6 @@ func Test_Single(t *testing.T) {
 	}
 }
 
-
 func Test_Multi(t *testing.T) {
 	filename := "data/gotest-multi.out"
 	suites := loadAndParseGoTest(filename, t)
