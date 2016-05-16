@@ -1,0 +1,4 @@
+=== RUN   TestUsage
+--- PASS: TestUsage (0.02s)
+PASS
+ok      github.com/tischda/go-archetype 0.053s

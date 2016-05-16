@@ -224,6 +224,17 @@ func Test_NoFiles(t *testing.T) {
 	}
 }
 
+func Test_Single(t *testing.T) {
+	filename := "data/gotest-single.out"
+	suites := loadAndParseGoTest(filename, t)
+
+	count := 1
+	if len(suites) != count {
+		t.Fatalf("bad number of suites. expected %d got %d", count, len(suites))
+	}
+}
+
+
 func Test_Multi(t *testing.T) {
 	filename := "data/gotest-multi.out"
 	suites := loadAndParseGoTest(filename, t)
