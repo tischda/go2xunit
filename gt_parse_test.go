@@ -314,6 +314,6 @@ func Test_0Time(t *testing.T) {
 func Test_TestifySuite(t *testing.T) {
 	suites := loadAndParseGoTest("data/gotest-testify-suite.out", t)
 	if len(suites) != 2 {
-		t.Fatalf("Wrong number of suites", len(suites))
+		t.Fatalf("Wrong number of suites - %d", len(suites))
 	}
 }
