@@ -1,3 +1,6 @@
+2021-05-05 version 1.1.2
+    * Use go modules
+
 2014-12-16 version 1.1.1
     * Better error message (github issue #19)
 
